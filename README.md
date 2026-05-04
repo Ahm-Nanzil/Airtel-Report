@@ -159,7 +159,7 @@ python airtel.py
 
 ### 🕓 `airtel_manual.py` — Custom Range Report
 
-Takes an **integer input** from the user and generates reports going back that many hours from now.
+Takes an **integer input** from the user and generates reports for target  hour.
 
 ```bash
 python airtel_manual.py
