@@ -18,10 +18,10 @@ This project provides:
 
 ## 📂 Project Structure
 
-
-Airtel/
+```text
+Airtel-Report/
 │
-├── pycache/
+├── __pycache__/
 ├── pyarmor_runtime_000000/
 ├── airtel.py
 ├── airtel_manual.py
@@ -30,21 +30,12 @@ Airtel/
 ├── license_check.py
 ├── license.key
 └── venv/
-
-
----
-
-## ⚙️ Requirements
-
-- Windows 10 or later  
-- Python 3.10+  
-- Internet connection  
-- Airtel portal credentials  
-
-Check Python:
-
-```bash
-python --version
+⚙️ Requirements
+Windows 10 or later
+Python 3.10+
+Internet connection
+Airtel portal credentials
+🔑 Valid license key from administrator (required to run scripts)
 🛠️ Installation
 1. Clone Repository
 git clone https://github.com/Ahm-Nanzil/Airtel-Report.git
@@ -61,23 +52,50 @@ python -m pip install playwright cryptography
 python -m playwright install
 🔐 Credentials Setup
 
-
-In credentials.txt
+credentials.txt
 
 Add:
 
-USERNAME=email_here
-PASSWORD=password_here
-▶️ Usage
-▶️ Run Current Hour Report
-py airtel.py
-▶️ Run Manual Report
-py airtel_manual.py
-▶️ Run Scheduler
-py main.py
+USERNAME=your_email_here
+PASSWORD=your_password_here
+🔑 License Requirement
+A valid license.key is required to run the project
+Contact the administrator to obtain a valid license
+▶️ Usage & Script Behavior
+📊 airtel.py (Current Hour Report)
+Generates report for the current hour
+Deletes any future-hour reports before generating
+Ensures only valid latest data exists
 
-Behavior:
+Run:
 
-Runs every hour
-Executes airtel.py
-Deletes future reports before generating new ones
+python airtel.py
+🕓 airtel_manual.py (Custom Range Report)
+Takes user input (Integer)
+
+Generates reports for:
+
+current hour - given input
+
+Deletes future-hour reports before generating
+Useful for backfilling or regenerating missing reports
+
+Run:
+
+python airtel_manual.py
+⏱ main.py (Scheduler)
+Runs continuously in the background
+Automatically triggers airtel.py every hour
+Handles:
+Scheduled execution
+Future report cleanup
+Consistent hourly data generation
+
+Run:
+
+python main.py
+🔁 Overall Behavior
+System runs on an hourly cycle
+Always deletes future reports before generating new ones
+Prevents duplicate or invalid data
+Maintains clean and consistent report history
