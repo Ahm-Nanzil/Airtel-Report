@@ -166,7 +166,7 @@ python airtel_manual.py
 ```
 
 **Behavior:**
-- 🎯 Generates reports from `current hour - N` up to `current hour`
+- 🎯 Generates reports for `current hour - N` = `target hour`
 - 🧹 Cleans up future-hour reports first
 - 🔄 Ideal for backfilling or recovering missing data
 
